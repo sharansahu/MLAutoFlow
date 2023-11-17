@@ -4,6 +4,13 @@ import sys
 
 CWD = os.getcwd()
 
+def is_pipreqs_installed():
+    try:
+        subprocess.run(["pipreqs", "--version"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        return True
+    except Exception:
+        return False
+
 def python_version():
     version_info = sys.version_info
     python_version = f'{version_info.major}.{version_info.minor}.{version_info.micro}'
@@ -18,6 +25,8 @@ def python_packages():
                 requirements.append(line.strip())
     else:
         try:
+            if not is_pipreqs_installed():
+                subprocess.run(["pip", "install", "pipreqs"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             result = subprocess.run(['pipreqs', CWD, '--print'], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
             requirements = result.stdout.decode('utf-8').splitlines()
         except subprocess.CalledProcessError as e:
