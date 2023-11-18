@@ -28,5 +28,6 @@ This script performs the following actions:
 2) Initialize Cog in the current directory if it hasn't been done already.
 3) Generates a predict.py file as a placeholder for your model's prediction logic.
 4) Creates a cog.yaml file tailored to your environment, including your Python version, detected Python packages, and System packages (if running on Ubuntu).
+6) Extracts user code and uses OpenAI GPT-4 Turbo to automatically create the `predict.py` file.
 
 from your project directory
