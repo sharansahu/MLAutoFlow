@@ -68,7 +68,4 @@ predict: "predict.py:Predictor"
 
     with open(os.path.join(CWD, 'cog.yaml'), 'w') as file:
         file.write(cog_config_content)
-    
-
-
-    
+        

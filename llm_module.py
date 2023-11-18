@@ -91,4 +91,3 @@ def generate_predictor_code(context):
 
     # Integrate the generated code into the Predictor class template
     return generated_code
-

@@ -34,7 +34,3 @@ def python_packages():
         except Exception as e:
             print(f"An error occurred: {e}")
     return requirements
-
-    
-
-

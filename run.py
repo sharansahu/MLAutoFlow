@@ -79,5 +79,3 @@ if __name__ == "__main__":
     
     if not was_initialized:
         print("Installation Done \U0001F604")
-
-        

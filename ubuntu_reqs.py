@@ -43,3 +43,4 @@ def get_system_packages():
     except Exception as e:
         print(f"Error reading package lists: {e}")
         return []
+        
