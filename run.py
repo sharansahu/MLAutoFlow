@@ -1,6 +1,7 @@
 import subprocess
 import platform
 import os
+import sys
 
 from create_cog_yaml import create_cog_components
 from gpt_repo_loader import *
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     output_file_path = sys.argv[sys.argv.index("-o") + 1] if "-o" in sys.argv else 'output.txt'
 
     process_git_repo(repo_path, preamble_file, output_file_path)
-    
+
     create_cog_components()
     
     if not was_initialized:
