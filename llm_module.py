@@ -2,7 +2,7 @@ from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
-from langchain.document_loaders import PyPDFLoader, DirectoryLoader
+from langchain.document_loaders import PyPDFLoader
 from langchain.embeddings import OpenAIEmbeddings
 import textwrap
 import os

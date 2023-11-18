@@ -1,7 +1,6 @@
 # Attribution: Repo Loader implementation comes at the courtesy of https://github.com/mpoon/gpt-repository-loader
 
 import os
-import sys
 import fnmatch
 
 def get_ignore_list(ignore_file_path):
