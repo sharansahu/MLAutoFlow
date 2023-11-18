@@ -6,7 +6,7 @@ MLAutoFlow is a package that allows users to push their custom-trained machine-l
 1) **Automatic Cog Installation:** Installs Cog if it's not already installed on the system.
 2) **Automatic `cog.yaml` Generation:** Generates a `cog.yaml` file based on the user's environment, specifically targeting Python packages (from `requirements.txt` or via `pipreqs`) and system packages (for Ubuntu users).
 3) **Simple Execution:** All setup steps are handled by running a single Python script.
-4) **(Future) LLM Integration:** Future updates aim to use Large Language Models (LLMs) to analyze user code and automatically create the `predict.py` file, further simplifying the process of pushing models to Replicate.
+4) **LLM Integration:** Use Large Language Models (LLMs) to analyze user code and automatically create the `predict.py` file, further simplifying the process of pushing models to Replicate.
 5) **(Future) Deploying To Replicate:** In future updates, you'll be able to automatically push your model to Replicate
 
 ## Installation
