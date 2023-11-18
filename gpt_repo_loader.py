@@ -4,7 +4,15 @@ import os
 import fnmatch
 
 def get_ignore_list(ignore_file_path):
-    ignore_list = []
+    package_root = os.path.dirname(os.path.realpath(__file__))
+    ignore_list = [
+        os.path.join(package_root, 'create_cog_yaml.py'),
+        os.path.join(package_root, 'gpt_repo_loader.py'),
+        os.path.join(package_root, 'llm_module.py'),
+        os.path.join(package_root, 'python_reqs.py'),
+        os.path.join(package_root, 'ubuntu_reqs.py'),
+        os.path.join(package_root, 'run.py')
+    ]
     with open(ignore_file_path, 'r') as ignore_file:
         for line in ignore_file:
             ignore_list.append(line.strip())
