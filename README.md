@@ -50,7 +50,7 @@ $ cog predict -i image=@image.jpg -i scale=2.0
 
 In this case it’s just a number, not a file, so you don’t need the @ prefix.
 
-### Push Your Model
+## Push Your Model
 Once you are done configuring and testing your model locally with the `cog.yaml` and `predict.py` files, you can create a corresponding model page on Replicate and publish it to Replicate’s registry:
 
 ```
@@ -62,7 +62,7 @@ Your username and model name must match the values you set on Replicate.
 
 Note: You can also set the image property in your cog.yaml file. This allows you to run cog push without specifying the image, and also makes your model page on Replicate more discoverable for folks reading your model’s source code.
 
-### Run Predictions
+## Run Predictions
 Once you’ve pushed your model to Replicate it will be visible on the website, and you can use the web-based form to run predictions using your model.
 
 To run predictions in the cloud from your code, you can use the Python client library.
