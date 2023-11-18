@@ -3,6 +3,7 @@ import platform
 import os
 
 from create_cog_yaml import create_cog_components
+from gpt_repo_loader import *
 
 CWD = os.getcwd()
 
@@ -43,10 +44,36 @@ def init_cog():
             print(f"Cog already initialized")
     return was_initialized
 
+def process_git_repo(repo_path, preamble_file, output_file_path):
+    ignore_file_path = os.path.join(repo_path, ".gptignore")
+
+    if not os.path.exists(ignore_file_path):
+        HERE = os.path.dirname(os.path.abspath(__file__))
+        ignore_file_path = os.path.join(HERE, ".gptignore")
+
+    if os.path.exists(ignore_file_path):
+        ignore_list = get_ignore_list(ignore_file_path)
+    else:
+        ignore_list = []
+
+    with open(output_file_path, 'w') as output_file:
+        if preamble_file:
+            with open(preamble_file, 'r') as pf:
+                preamble_text = pf.read()
+                output_file.write(f"{preamble_text}\n")
+        process_repository(repo_path, ignore_list, output_file)
+        output_file.write("--END--")
+
 if __name__ == "__main__":
     install_cog()
     was_initialized = init_cog()
     create_cog_components()
+    repo_path = sys.argv[1] if len(sys.argv) >= 2 else os.getcwd()
+    preamble_file = sys.argv[sys.argv.index("-p") + 1] if "-p" in sys.argv else None
+    output_file_path = sys.argv[sys.argv.index("-o") + 1] if "-o" in sys.argv else 'output.txt'
+
+    process_git_repo(repo_path, preamble_file, output_file_path)
+
     if not was_initialized:
         print("Installation Done \U0001F604")
 
