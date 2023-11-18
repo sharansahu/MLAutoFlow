@@ -3,39 +3,17 @@ import yaml
 
 from python_reqs import *
 from ubuntu_reqs import *
+from llm_module import extract_context, generate_predictor_code
 
 CWD = os.getcwd()
 
 def create_predict_file():
-    predict_file = os.path.join(CWD, "predict.py")
-    if not os.path.exists(predict_file):
-        predictor_code = \
-        """
-        # Prediction interface for Cog ⚙️
-        # https://github.com/replicate/cog/blob/main/docs/python.md
+    output_path = os.path.join(CWD, "output.txt")
+    context = extract_context(output_path)
 
-        from cog import BasePredictor, Input, Path
-
-
-        class Predictor(BasePredictor):
-            def setup(self) -> None:
-                \"\"\"Load the model into memory to make running multiple predictions efficient\"\"\"
-                # self.model = torch.load("./weights.pth")
-
-            def predict(
-                self,
-                image: Path = Input(description="Grayscale input image"),
-                scale: float = Input(
-                    description="Factor to scale image by", ge=0, le=10, default=1.5
-                ),
-            ) -> Path:
-                \"\"\"Run a single prediction on the model\"\"\"
-                # processed_input = preprocess(image)
-                # output = self.model(processed_image, scale)
-                # return postprocess(output)
-        """
-        with open('predict.py', 'w') as file:
-            file.write(predictor_code.strip())
+    predictor_code = generate_predictor_code(context)
+    with open('predict.py', 'w') as file:
+        file.write(predictor_code.strip())
 
 def format_packages(packages):
     return "\n".join(f'    - "{pkg}"' for pkg in packages)

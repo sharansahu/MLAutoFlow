@@ -67,13 +67,15 @@ def process_git_repo(repo_path, preamble_file, output_file_path):
 if __name__ == "__main__":
     install_cog()
     was_initialized = init_cog()
-    create_cog_components()
+
     repo_path = sys.argv[1] if len(sys.argv) >= 2 else os.getcwd()
     preamble_file = sys.argv[sys.argv.index("-p") + 1] if "-p" in sys.argv else None
     output_file_path = sys.argv[sys.argv.index("-o") + 1] if "-o" in sys.argv else 'output.txt'
 
     process_git_repo(repo_path, preamble_file, output_file_path)
-
+    
+    create_cog_components()
+    
     if not was_initialized:
         print("Installation Done \U0001F604")
 
