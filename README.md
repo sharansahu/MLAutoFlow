@@ -31,7 +31,7 @@ This script performs the following actions:
 
 from your project directory
 
-# Example
+## Example
 The [`examples`](examples) folder has an example of training a simple MLP on MNIST data. After creating a `.env` file with your OpenAI API key, you can run
 
 ```
