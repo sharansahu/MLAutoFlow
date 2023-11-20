@@ -42,7 +42,8 @@ in the example's folder. This is the sample `predict.py` file one may get out us
 
 ```
 from cog import BasePredictor, Input, Path
-from image_classification import LightningMNISTClassifier, DataLoader, transforms
+import torch
+from image_classification import LightningMNISTClassifier, transforms
 
 class Predictor(BasePredictor):
     def setup(self) -> None:
