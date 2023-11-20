@@ -1,3 +1,5 @@
+# Attribution: Code comes at the courtesy of https://github.com/rubentea16/pl-mnist/blob/master/pl_mnist.ipynb
+
 import torch
 import pytorch_lightning as pl
 import os

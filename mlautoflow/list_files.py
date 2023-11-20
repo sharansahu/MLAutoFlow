@@ -79,3 +79,4 @@ class DisplayablePath(object):
 
     def is_not_hidden(path):
         return not path.name.startswith(".")
+        

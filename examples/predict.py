@@ -1,7 +1,8 @@
 # Output predict.py file using LLM on example of training a simple MLP on MNIST data
 
 from cog import BasePredictor, Input, Path
-from image_classification import LightningMNISTClassifier, DataLoader, transforms
+import torch
+from image_classification import LightningMNISTClassifier, transforms
 
 class Predictor(BasePredictor):
     def setup(self) -> None:
