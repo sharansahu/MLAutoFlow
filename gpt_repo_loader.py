@@ -11,7 +11,7 @@ def get_ignore_list(ignore_file_path):
         os.path.join(package_root, 'llm_module.py'),
         os.path.join(package_root, 'python_reqs.py'),
         os.path.join(package_root, 'ubuntu_reqs.py'),
-        os.path.join(package_root, 'run.py')
+        os.path.join(package_root, 'run.py'),
     ]
     with open(ignore_file_path, 'r') as ignore_file:
         for line in ignore_file:

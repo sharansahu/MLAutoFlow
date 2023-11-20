@@ -4,11 +4,16 @@ from python_reqs import *
 from ubuntu_reqs import *
 from llm_module import extract_context, generate_predictor_code
 
+from list_files import *
+
 CWD = os.getcwd()
 
 def create_predict_file():
-    output_path = os.path.join(CWD, "output.txt")
-    context = extract_context(output_path)
+    paths = DisplayablePath.make_tree(Path(str(os.getcwd())), criteria=DisplayablePath.is_not_hidden)
+    context = ""
+    for path in paths:
+        context += path.displayable()
+        context += "\n"
 
     predictor_code = generate_predictor_code(context)
     with open('predict.py', 'w') as file:

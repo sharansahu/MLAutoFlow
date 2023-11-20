@@ -1,6 +1,7 @@
 import subprocess
 import os 
 import sys
+import re
 
 CWD = os.getcwd()
 
@@ -29,6 +30,7 @@ def python_packages():
                 subprocess.run(["pip", "install", "pipreqs"], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
             result = subprocess.run(['pipreqs', CWD, '--print'], stdout = subprocess.PIPE, stderr = subprocess.PIPE)
             requirements = result.stdout.decode('utf-8').splitlines()
+            requirements = [req for req in requirements if not re.search('cog', req)]
         except subprocess.CalledProcessError as e:
             print(f"Error running pipreqs: {e}")
         except Exception as e:

@@ -1,0 +1,26 @@
+# Configuration for Cog ⚙️
+# Reference: https://github.com/replicate/cog/blob/main/docs/yaml.md
+
+build:
+  # set to true if your model requires a GPU
+  gpu: false
+
+  # system_packages:
+  #   - "libgl1-mesa-glx"
+  #   - "libglib2.0-0"
+
+  # python version in the form '3.9.7' or '3.9.7.x'
+  python_version: "3.9.7"
+
+  python_packages:
+    - "pytorch_lightning==2.1.2"
+    - "torch==2.1.1"
+    - "torchvision==0.16.1"
+
+  # commands run after the environment is setup
+  # run:
+  #   - "echo env is ready!"
+  #   - "echo another command if needed"
+
+# predict.py defines how predictions are run on your model
+predict: "predict.py:Predictor"
